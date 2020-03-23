@@ -1,3 +1,27 @@
+const geocode = require('./utils/geocode');
+const forecast = require('./utils/forecast');
+
+const address = process.argv[2];
+
+if(address){
+    geocode(address, (error, { latitude, longitude, location }) =>{
+        if(error){
+            console.log(error)
+        } else{
+            forecast(latitude, longitude, (error, weatherForecast) =>{
+                if(error){
+                    console.log(error);
+                } else {
+                    console.log('In ' + location + '. It is ' + weatherForecast)
+                }
+            });
+        }
+    });
+} else{
+    console.log('Please Provide Some Address!')
+}
+
+
 // console.log('Starting');
 
 // setTimeout(() => {
@@ -10,12 +34,10 @@
 
 // console.log('Stopping');
 
+
 // const request = require('request');
-const geocode = require('./utils/geocode');
-const forecast = require('./utils/forecast');
 
 // const url = 'https://api.darksky.net/forecast/87a374a559f450eb2624a8706e7a1e85/37.8267,-122.4233?units=si';
-
 // request({url: url, json: true}, (error, response) => {
 //     if(error){
 //         console.log('Unable to Connect to Weather Service!');
@@ -41,24 +63,3 @@ const forecast = require('./utils/forecast');
 //         console.log('The Longitude and Latitude of', data.location, 'is', data.longitude, data.latitude, 'respectively');
 //     }
 // });
-
-const command = process.argv[2];
-
-if(command){
-    geocode(command, (error, data) =>{
-        if(error){
-            console.log(error)
-        } else{
-            forecast(data.latitude, data.longitude, (error, weatherForecast) =>{
-                if(error){
-                    console.log(error);
-                } else {
-                    console.log('In ' + data.location + '. It is ' + weatherForecast)
-                }
-            });
-        }
-    });
-} else{
-    console.log('Please Provide Some Address!')
-}
-
