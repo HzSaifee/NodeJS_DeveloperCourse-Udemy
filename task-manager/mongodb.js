@@ -67,4 +67,44 @@ MongoClient.connect(connectionURL, {useNewUrlParser: true}, (error, client) => {
     //     console.log(result.ops);
     // });
 
+    // db.collection('users').findOne({ age: 23, _id: new ObjectID("5e8a588500ea6245bc13628a") }, (error, user) => {
+    //     if(error){
+    //         return console.log('Unable to fetch');
+    //     }
+
+    //     console.log(user);
+    // });
+
+    // db.collection('users').find({ age: 23 }).toArray((error, users) => {
+    //     if(error){
+    //         return console.log('Unable to fetch');
+    //     }
+
+    //     console.log(users);
+    // });
+
+    // db.collection('users').find({ age: 23 }).count((error, count) => {
+    //     if(error){
+    //         return console.log('Unable to fetch');
+    //     }
+
+    //     console.log(count);
+    // });
+
+    // db.collection('tasks').findOne({ _id: new ObjectID("5e8a5d9247dddd22746651d1") }, (error, task) => {
+    //     if(error){
+    //         return console.log('Unable to fetch');
+    //     }
+
+    //     console.log(task);
+    // });
+
+    // db.collection('tasks').find({ completed: false }).toArray((error, tasks) => {
+    //     if(error){
+    //         return console.log('Unable to fetch');
+    //     }
+
+    //     console.log(tasks);
+    // });
+
 });
