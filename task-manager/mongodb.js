@@ -139,12 +139,12 @@ MongoClient.connect(connectionURL, {useNewUrlParser: true}, (error, client) => {
     //     console.log(error);
     // })
 
-    db.collection('tasks').deleteOne({
-        description: 'Task Three'
-    }).then((result) => {
-        console.log(result.deletedCount);
-    }).catch((error) => {
-        console.log(error);
-    })
+    // db.collection('tasks').deleteOne({
+    //     description: 'Task Three'
+    // }).then((result) => {
+    //     console.log(result.deletedCount);
+    // }).catch((error) => {
+    //     console.log(error);
+    // })
 
 });
